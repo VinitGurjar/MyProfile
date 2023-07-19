@@ -5,6 +5,7 @@ import {
   Session,
   createClientComponentClient,
 } from "@supabase/auth-helpers-nextjs";
+import Avatar from "./avtar";
 
 export default function AccountForm({ session }: { session: Session | null }) {
   const supabase = createClientComponentClient<Database>();
@@ -129,6 +130,27 @@ export default function AccountForm({ session }: { session: Session | null }) {
           </button>
         </form>
       </div>
+
+      {
+        //solved an typescript error by adding the user variable to the if statement.
+        /*This code checks if the user variable is defined before rendering the Avatar 
+      component. If user is undefined, the Avatar component will not be rendered.*/
+      }
+      {user && (
+        /*this code is rendering an Avatar component that displays a user's avatar image
+         and allows the user to upload a new avatar image. When the user uploads a new 
+         avatar image, the onUpload callback function is called to update the avatar_url 
+         state variable and call the updateProfile function with the new avatar_url value.*/
+        <Avatar
+          uid={user.id}
+          url={avatar_url}
+          size={150}
+          onUpload={(url) => {
+            setAvatarUrl(url);
+            updateProfile({ fullname, username, website, avatar_url: url });
+          }}
+        />
+      )}
     </div>
   );
 }
