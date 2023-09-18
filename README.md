@@ -1,6 +1,6 @@
 # Next-Supabase-User-client
-> With the help of this article [Build a User Management App with NextJS](https://supabase.com/docs/guides/getting-started/tutorials/with-nextjs) I've built this app.
--  This tutorial demonstrates how to build a basic user management app. The app authenticates and identifies the user, stores their profile information in the database, and allows the user to log in, update their profile details, and upload a profile photo. The app uses:
+
+### This app authenticates and identifies the user, stores their profile information in the superbase database, and allows the user to log in, update their profile details, and upload a profile photo. The app uses:
   
    1. Supabase Database: a Postgres database for storing your user data and Row Level Security so data is protected and users can only access their information.
    1. Supabase Auth: users log in through magic links sent to their email (without having to set up passwords).
